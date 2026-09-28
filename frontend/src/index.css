@@ -1,0 +1,708 @@
+/* Global Design Tokens & Global Styles */
+:root {
+  --maroon: #6d1f36;
+  --maroon-hover: #541729;
+  --paper: #f7f7f8;
+  --ink: #26262b;
+  --ink-muted: #6b6b73;
+  --muted: #6b6b73;
+  --rose-tint: #f1e4e8;
+  --rose-border: #dcb3be;
+  --green: #2f7a4f;
+  --green-tint: #e6f4ea;
+  --amber: #a5651a;
+  --amber-tint: #fef3c7;
+  --blue: #2b6cb0;
+  --blue-tint: #ebf8ff;
+  --red: #c53030;
+  --red-tint: #fff5f5;
+  --card-bg: #ffffff;
+  --border-color: #e3e3e6;
+  --radius: 4px;
+
+  --font-serif: "Source Serif 4", Georgia, serif;
+  --font-sans: "Source Sans 3", system-ui, -apple-system, sans-serif;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  background-color: var(--paper) !important;
+  color: var(--ink) !important;
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  color: var(--ink);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: var(--maroon);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   Navbar & Profile Dropdown
+   ========================================================================== */
+.navbar-container {
+  background-color: var(--maroon) !important;
+  color: #ffffff !important;
+  padding: 0 32px !important;
+  height: 64px !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  position: relative !important;
+  z-index: 900 !important;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand {
+  font-family: var(--font-serif) !important;
+  font-size: 1.6rem !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  letter-spacing: -0.3px;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  height: 64px;
+}
+
+.nav-link-item {
+  background: transparent !important;
+  border: none !important;
+  color: #ffffff !important;
+  font-family: var(--font-sans) !important;
+  font-size: 0.95rem !important;
+  font-weight: 600 !important;
+  padding: 0 4px !important;
+  height: 64px !important;
+  display: flex !important;
+  align-items: center !important;
+  cursor: pointer !important;
+  position: relative !important;
+  transition: opacity 0.2s ease !important;
+}
+
+.nav-link-item:hover {
+  opacity: 0.85;
+}
+
+.nav-link-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: #ffffff;
+  border-radius: 3px 3px 0 0;
+}
+
+.avatar-wrapper {
+  position: relative;
+}
+
+.avatar-btn {
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 50% !important;
+  background-color: #ffffff !important;
+  color: var(--maroon) !important;
+  font-family: var(--font-sans) !important;
+  font-weight: 700 !important;
+  font-size: 1rem !important;
+  border: none !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: transform 0.15s ease !important;
+}
+
+.avatar-btn:hover {
+  transform: scale(1.05);
+}
+
+.profile-dropdown {
+  position: absolute !important;
+  top: 48px !important;
+  right: 0 !important;
+  width: 280px !important;
+  max-width: 90vw !important;
+  background-color: #ffffff !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
+  z-index: 1000 !important;
+  overflow: hidden !important;
+  padding: 16px 0 8px 0 !important;
+  animation: dropdownFadeIn 0.15s ease-out;
+}
+
+@keyframes dropdownFadeIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.dropdown-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 16px 14px 16px;
+  text-align: center;
+}
+
+.large-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: var(--rose-tint);
+  color: var(--maroon);
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.user-name {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--ink);
+  margin-bottom: 2px;
+}
+
+.user-email {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.dropdown-section {
+  padding: 0 16px 12px 16px;
+}
+
+.manage-profile-btn {
+  width: 100% !important;
+  background-color: #ffffff !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--ink) !important;
+  font-family: var(--font-sans) !important;
+  font-weight: 600 !important;
+  font-size: 0.85rem !important;
+  padding: 8px 12px !important;
+  border-radius: var(--radius) !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+
+.manage-profile-btn:hover {
+  background-color: var(--rose-tint) !important;
+  border-color: var(--maroon) !important;
+  color: var(--maroon) !important;
+}
+
+.dropdown-divider {
+  height: 1px;
+  background-color: var(--border-color);
+  margin: 4px 0;
+}
+
+.dropdown-menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-item {
+  padding: 10px 20px !important;
+  font-family: var(--font-sans) !important;
+  font-size: 0.9rem !important;
+  color: var(--ink) !important;
+  cursor: pointer !important;
+  transition: background-color 0.15s ease !important;
+}
+
+.menu-item:hover {
+  background-color: var(--rose-tint) !important;
+  color: var(--maroon) !important;
+}
+
+.logout-item {
+  color: var(--maroon) !important;
+  font-weight: 600 !important;
+}
+
+.mobile-nav-items {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .navbar-container {
+    padding: 0 16px !important;
+  }
+  .navbar-links {
+    display: none;
+  }
+  .mobile-nav-items {
+    display: block;
+  }
+}
+
+/* ==========================================================================
+   Text Filter Tabs (Student Dashboard Top Section)
+   ========================================================================== */
+.tabs-container {
+  display: flex !important;
+  align-items: center !important;
+  gap: 28px !important;
+  border-bottom: 1px solid var(--border-color) !important;
+  margin-top: 24px !important;
+  white-space: nowrap !important;
+  overflow-x: auto !important;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none;
+}
+
+.tabs-container::-webkit-scrollbar {
+  display: none;
+}
+
+.text-tab {
+  background: transparent !important;
+  border: none !important;
+  color: var(--muted) !important;
+  font-family: var(--font-sans) !important;
+  font-size: 0.95rem !important;
+  font-weight: 700 !important; /* Bold text for all tabs */
+  padding: 8px 0 12px 0 !important;
+  cursor: pointer !important;
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  transition: color 0.15s ease !important;
+}
+
+.text-tab:hover {
+  color: var(--ink) !important;
+}
+
+.text-tab.active {
+  color: var(--maroon) !important; /* Active tab is maroon color */
+}
+
+.text-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--maroon);
+}
+
+.tab-count {
+  font-weight: 400 !important;
+  color: var(--muted) !important;
+  font-size: 0.88rem !important;
+}
+
+/* ==========================================================================
+   Full-Width Search Bar
+   ========================================================================== */
+.dashboard-search-bar {
+  margin-top: 16px !important;
+  margin-bottom: 24px !important;
+  width: 100% !important;
+}
+
+.dashboard-search-input {
+  width: 100% !important;
+  background-color: #ffffff !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: var(--radius) !important;
+  color: var(--ink) !important;
+  font-family: var(--font-sans) !important;
+  font-size: 0.95rem !important;
+  padding: 14px 16px !important;
+  outline: none !important;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease !important;
+}
+
+.dashboard-search-input::placeholder {
+  color: var(--muted) !important;
+}
+
+.dashboard-search-input:focus {
+  border-color: var(--maroon) !important;
+  box-shadow: 0 0 0 3px rgba(109, 31, 54, 0.12) !important;
+}
+
+/* ==========================================================================
+   Complaint Cards
+   ========================================================================== */
+.complaint-item, .complaint-card {
+  background-color: var(--card-bg) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: var(--radius) !important;
+  padding: 20px !important;
+  margin-bottom: 16px !important;
+  box-shadow: none !important;
+  color: var(--ink) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+}
+
+.complaint-card.status-pending, .complaint-item.status-pending { border-left: 4px solid var(--amber) !important; }
+.complaint-card.status-in-progress, .complaint-item.status-in-progress { border-left: 4px solid var(--blue) !important; }
+.complaint-card.status-resolved, .complaint-item.status-resolved { border-left: 4px solid var(--green) !important; }
+.complaint-card.status-rejected, .complaint-item.status-rejected { border-left: 4px solid var(--red) !important; }
+
+.chip {
+  display: inline-flex !important;
+  align-items: center !important;
+  padding: 3px 10px !important;
+  border-radius: var(--radius) !important;
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+  font-family: var(--font-sans) !important;
+}
+
+.chip-tracking {
+  background-color: var(--rose-tint) !important;
+  color: var(--maroon) !important;
+}
+
+.chip-category {
+  background-color: #eeeeef !important;
+  color: var(--ink) !important;
+}
+
+.chip-priority-high, .chip-priority-urgent {
+  background-color: var(--red-tint) !important;
+  color: var(--red) !important;
+}
+
+.chip-priority-medium {
+  background-color: var(--amber-tint) !important;
+  color: var(--amber) !important;
+}
+
+.chip-priority-low {
+  background-color: var(--green-tint) !important;
+  color: var(--green) !important;
+}
+
+.status-text-pending { color: var(--amber) !important; font-weight: 700; font-family: var(--font-sans); }
+.status-text-in-progress { color: var(--blue) !important; font-weight: 700; font-family: var(--font-sans); }
+.status-text-resolved { color: var(--green) !important; font-weight: 700; font-family: var(--font-sans); }
+.status-text-rejected { color: var(--red) !important; font-weight: 700; font-family: var(--font-sans); }
+
+.complaint-title {
+  font-family: var(--font-serif) !important;
+  color: var(--maroon) !important;
+  font-weight: 700 !important;
+  font-size: 1.25rem !important;
+  margin: 4px 0 !important;
+}
+
+.complaint-description {
+  font-family: var(--font-sans) !important;
+  color: var(--ink) !important;
+  font-size: 0.95rem !important;
+  line-height: 1.5 !important;
+  margin: 0 !important;
+}
+
+.details-strip {
+  background-color: #f0f0f2 !important;
+  border-radius: var(--radius) !important;
+  padding: 10px 14px !important;
+  font-size: 0.85rem !important;
+  color: var(--ink) !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 16px !important;
+  margin-top: 4px !important;
+}
+
+.details-strip strong {
+  color: var(--ink) !important;
+  font-weight: 700 !important;
+}
+
+.submitted-date {
+  font-family: var(--font-sans) !important;
+  font-size: 0.78rem !important;
+  color: var(--muted) !important;
+}
+
+/* ==========================================================================
+   Buttons & Inputs
+   ========================================================================== */
+.btn-primary-maroon, .new-complaint-btn, .btn-login, .submit-btn {
+  background-color: var(--maroon) !important;
+  color: #ffffff !important;
+  font-family: var(--font-sans) !important;
+  font-weight: 600 !important;
+  border: none !important;
+  border-radius: var(--radius) !important;
+  padding: 10px 20px !important;
+  cursor: pointer !important;
+  transition: background-color 0.2s ease !important;
+}
+
+.btn-primary-maroon:hover, .new-complaint-btn:hover, .btn-login:hover, .submit-btn:hover {
+  background-color: var(--maroon-hover) !important;
+}
+
+.btn-secondary-maroon {
+  background-color: #ffffff !important;
+  color: var(--maroon) !important;
+  border: 1px solid var(--maroon) !important;
+  font-family: var(--font-sans) !important;
+  font-weight: 600 !important;
+  border-radius: var(--radius) !important;
+  padding: 8px 16px !important;
+  cursor: pointer !important;
+}
+
+footer, .homepage-footer {
+  text-align: center !important;
+  padding: 20px !important;
+  background-color: var(--paper) !important;
+  border-top: 1px solid var(--border-color) !important;
+  color: var(--muted) !important;
+  font-family: var(--font-sans) !important;
+  font-size: 0.85rem !important;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+  background-color: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.admin-table th {
+  background-color: var(--maroon);
+  color: #ffffff;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  text-align: left;
+  padding: 12px 16px;
+}
+
+.admin-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--ink);
+  font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   Campus Modal Category Cards Styling
+   ========================================================================== */
+.category-card-custom {
+  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.15s ease !important;
+}
+
+.category-card-custom:hover {
+  border-color: var(--maroon) !important;
+  background-color: var(--rose-tint) !important;
+  transform: translateY(-2px) !important;
+}
+
+.category-icon-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--rose-tint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.category-card-custom:hover .category-icon-circle {
+  background-color: var(--maroon);
+}
+
+.category-card-custom:hover .category-icon-circle svg {
+  stroke: #ffffff !important;
+}
+
+/* ==========================================================================
+   Login & Signup Auth Pages Styling
+   ========================================================================== */
+.login-container {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding: 40px 20px !important;
+  min-height: calc(100vh - 128px) !important;
+  background-color: var(--paper) !important;
+}
+
+.login-card {
+  background-color: #ffffff !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05) !important;
+  width: 100% !important;
+  max-width: 440px !important;
+  padding: 36px 32px !important;
+  text-align: center !important;
+}
+
+.login-card.signup-card-wide {
+  max-width: 480px !important;
+}
+
+.login-card h2 {
+  font-family: var(--font-serif) !important;
+  color: var(--maroon) !important;
+  font-size: 1.8rem !important;
+  font-weight: 700 !important;
+  margin: 0 0 6px 0 !important;
+}
+
+.login-card > p {
+  color: var(--muted) !important;
+  font-size: 0.92rem !important;
+  margin: 0 0 24px 0 !important;
+  font-family: var(--font-sans) !important;
+}
+
+.login-form, .signup-form {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 16px !important;
+  text-align: left !important;
+}
+
+.form-group {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 6px !important;
+}
+
+.form-group label {
+  font-size: 0.88rem !important;
+  font-weight: 600 !important;
+  color: var(--ink) !important;
+  font-family: var(--font-sans) !important;
+  margin: 0 !important;
+}
+
+.form-group input, .form-group select {
+  width: 100% !important;
+  height: 44px !important;
+  padding: 10px 14px !important;
+  font-size: 0.95rem !important;
+  font-family: var(--font-sans) !important;
+  color: var(--ink) !important;
+  background-color: #ffffff !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: var(--radius) !important;
+  outline: none !important;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease !important;
+  box-sizing: border-box !important;
+}
+
+.form-group input:focus, .form-group select:focus {
+  border-color: var(--maroon) !important;
+  box-shadow: 0 0 0 3px rgba(109, 31, 54, 0.12) !important;
+}
+
+.form-group input::placeholder {
+  color: #a0a0a8 !important;
+}
+
+.btn-login {
+  width: 100% !important;
+  height: 44px !important;
+  background-color: var(--maroon) !important;
+  color: #ffffff !important;
+  font-family: var(--font-sans) !important;
+  font-weight: 700 !important;
+  font-size: 0.98rem !important;
+  border: none !important;
+  border-radius: var(--radius) !important;
+  cursor: pointer !important;
+  margin-top: 8px !important;
+  transition: background-color 0.15s ease !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.btn-login:hover {
+  background-color: var(--maroon-hover) !important;
+}
+
+.btn-login:disabled {
+  opacity: 0.7 !important;
+  cursor: not-allowed !important;
+}
+
+.form-footer {
+  text-align: center !important;
+  margin-top: 12px !important;
+  padding-top: 16px !important;
+  border-top: 1px solid var(--border-color) !important;
+  font-size: 0.9rem !important;
+}
+
+.form-footer p {
+  margin: 0 !important;
+  color: var(--muted) !important;
+  font-family: var(--font-sans) !important;
+}
+
+.form-footer a {
+  color: var(--maroon) !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+}
+
+.form-footer a:hover {
+  text-decoration: underline !important;
+}
+
+

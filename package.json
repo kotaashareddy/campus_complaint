@@ -1,0 +1,12 @@
+{
+  "name": "online-complaints",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "npm --prefix frontend run dev",
+    "backend": "node backend/index.js",
+    "start": "node backend/index.js"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.7"
+  }
+}

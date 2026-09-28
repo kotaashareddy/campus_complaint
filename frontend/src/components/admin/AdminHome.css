@@ -1,0 +1,142 @@
+/* Global Reset */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #000;
+  color: #fff;
+}
+
+/* Header */
+.admin-header {
+  background-color: #000;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #FFD700;
+  flex-wrap: wrap;
+}
+
+.admin-brand {
+  font-size: 24px;
+  font-weight: bold;
+  color: #FFD700;
+}
+
+/* Tab Navigation Buttons */
+.admin-nav {
+  display: flex;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.tab {
+  background-color: #222;
+  color: #ccc;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.tab.active {
+  background-color: #f2ff00; /* Bright yellow for active */
+  color: black;
+}
+
+.tab:hover {
+  background-color: #ffef0c;
+}
+
+/* Logout Button */
+.logout-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background-color: #c82333;
+}
+
+/* Main Content */
+.admin-content {
+  padding: 30px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Section Title */
+.section-title {
+  color: #FFD700;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #FFD700;
+  padding-bottom: 10px;
+}
+
+/* Complaint List */
+.complaint-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.complaint-item {
+  background-color: #111;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #FFD700;
+}
+
+/* Dropdowns and Assign Button */
+.complaint-status {
+  background-color: #222;
+  color: #fff;
+  border: 1px solid #FFD700;
+  padding: 8px 12px;
+  border-radius: 5px;
+}
+
+.new-complaint-btn {
+  background-color: #FFD700;
+  color: #000;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.new-complaint-btn:hover {
+  background-color: #e6c200;
+}
+
+/* User & Agent Card Grid */
+.user-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.stat-card {
+  background-color: #222;
+  padding: 20px;
+  border-radius: 8px;
+  width: 250px;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+}
